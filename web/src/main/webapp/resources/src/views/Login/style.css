@@ -1,0 +1,9 @@
+.borderNone {
+    border: none !important;
+}
+
+.panel-style {
+    background-color:#E0E0E0;
+    font-family: 'Roboto', serif;
+    color:#795548
+}

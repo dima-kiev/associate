@@ -1,0 +1,6 @@
+rootProject.name = 'associate'
+
+include 'web'
+include 'entity'
+include 'common'
+include 'api'

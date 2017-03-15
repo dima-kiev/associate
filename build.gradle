@@ -1,0 +1,121 @@
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        //classpath "gradle.plugin.com.boxfuse.client:flyway-release:4.0.3"
+    }
+}
+subprojects {
+    apply plugin: 'java'
+
+    group 'com.itsupportme'
+    version '1.0-SNAPSHOT'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+    // Spring
+        compile     group: 'org.springframework',           name: 'spring-core',            version: '4.3.7.RELEASE'
+        compile     group: 'org.springframework.security',  name: 'spring-security-core',   version: '4.2.2.RELEASE'
+    // Log4j
+        compile     group: 'log4j',                         name: 'log4j',                  version: '1.2.17'
+        compile     group: 'org.slf4j',                     name: 'slf4j-simple',           version: '1.7.22'
+    // TEST
+        testCompile group: 'junit',                         name: 'junit',                  version: '4.12'
+    }
+
+    sourceCompatibility = 1.8
+}
+
+project(':web') {
+    apply plugin: 'war'
+
+    // Build exploded war
+    task explode(type: Copy) {
+        into "$buildDir/exploded"
+        with war
+    }
+
+    dependencies {
+        // Spring
+        compile     group: 'org.springframework',           name: 'spring-webmvc',          version: '4.3.7.RELEASE'
+
+        compile     group: 'org.thymeleaf',                 name: 'thymeleaf-spring4',      version: '2.1.4.RELEASE'
+        compile     group: 'org.thymeleaf.extras',          name: 'thymeleaf-extras-springsecurity3',   version: '2.1.2.RELEASE'
+
+        compile     group: 'javax.servlet',                 name: 'javax.servlet-api',      version: '3.1.0'
+    }
+}
+
+project(':common') {
+    dependencies {
+    // MODULES
+        compile project(":entity")
+    // Spring
+        compile     group: 'org.springframework',           name: 'spring-web',             version: '4.3.7.RELEASE'
+        compile     group: 'org.springframework.security',  name: 'spring-security-config', version: '4.2.2.RELEASE'
+        compile     group: 'org.springframework.security',  name: 'spring-security-test',   version: '4.2.2.RELEASE'
+        compile     group: 'org.springframework',           name: 'spring-jms',             version: '4.2.0.RELEASE'
+
+        compile     group: 'com.fasterxml.jackson.module',  name: 'jackson-module-jaxb-annotations',    version: '2.8.0'
+        compile     group: 'javax.servlet',                 name: 'javax.servlet-api',      version: '3.1.0'
+        compile     group: 'io.jsonwebtoken',               name: 'jjwt',                   version: '0.7.0'
+    }
+}
+
+project(':entity') {
+    dependencies {
+    // Hibernate
+        compile     group: 'org.hibernate',                 name: 'hibernate-core',         version: '5.2.8.Final'
+        compile     group: 'org.hibernate',                 name: 'hibernate-validator',    version: '5.4.0.Final'
+        compile     group: 'org.hibernate',                 name: 'hibernate-entitymanager',version: '5.2.8.Final'
+    // Other Libs
+        compile     group: 'org.apache.commons',            name: 'commons-lang3',          version: '3.5'
+        compile     group: 'com.fasterxml.jackson.core',    name: 'jackson-annotations',    version: '2.8.0'
+
+    // Spring ORM
+        compile     group: 'org.springframework',           name: 'spring-orm',             version: '4.3.7.RELEASE'
+        compile     group: 'org.springframework.data',      name: 'spring-data-jpa',        version: '1.11.1.RELEASE'
+
+    // Data source
+        compile     group: 'org.vibur',                     name: 'vibur-dbcp',             version: '16.2'
+        compile     group: 'org.vibur',                     name: 'vibur-dbcp-hibernate5',  version: '16.2'
+        compile     group: 'mysql',                         name: 'mysql-connector-java',   version: '5.1.41'
+        compile     group: 'com.googlecode.concurrentlinkedhashmap', name: 'concurrentlinkedhashmap-lru', version: '1.4.2'
+
+    }
+}
+
+
+project(':api') {
+    apply plugin: 'war'
+
+    // Build exploded war
+    task explode(type: Copy) {
+        into "$buildDir/exploded"
+        with war
+    }
+
+    dependencies {
+    // MODULES
+        compile project(':common')
+
+    // Spring
+        compile     group: 'org.springframework',           name: 'spring-webmvc',          version: '4.3.7.RELEASE'
+        compile     group: 'org.springframework.data',      name: 'spring-data-rest-webmvc',version: '2.5.4.RELEASE'
+        compile     group: 'org.springframework.security',  name: 'spring-security-web'    ,version: '4.2.2.RELEASE'
+    }
+}
+
+
+
+
+
+
+
+

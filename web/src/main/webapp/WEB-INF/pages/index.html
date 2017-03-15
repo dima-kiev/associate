@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--/* @thymesVar id="baseUrl" type="java.lang.String"*/-->
+<head>
+    <meta name="base-url" th:content="${baseUrl}"/>
+    <link th:href="${@mvcResourceUrlProvider.getForLookupPath('/static/favicon.ico')}" rel="shortcut icon" type="image/x-icon" />
+    <title>GCS</title>
+</head>
+<body>
+<div th:id="content"></div>
+<script>
+    var WebFontConfig = {
+        google: { families: [ 'Roboto:400,300,500:latin' ] }
+    };
+    (function() {
+        var wf = document.createElement('script');
+        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+    })();
+</script>
+<script type="text/javascript" th:src="${@mvcResourceUrlProvider.getForLookupPath('/static/bundle.js')}"></script>
+</body>
+</html>

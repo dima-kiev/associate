@@ -1,0 +1,113 @@
+body {
+    background-color:white!important;
+}
+table {
+    table-layout: auto!important;
+}
+
+.material-ui {
+    color:#795548;
+}
+
+.content-color {
+    background-color: white;
+}
+
+th {
+    text-align: left !important;
+}
+
+td {
+    text-align: left !important;
+}
+
+.table-textAlignLeft th, .table-textAlignLeft td {
+    text-align: left !important;
+}
+
+.position-relative-height {
+    position: relative;
+    height: 36px;
+}
+
+.absolute-left-0 {
+    position: absolute;
+    left: 0;
+}
+
+.absolute-right-0 {
+    position: absolute;
+    right: 0;
+}
+
+.marginTop-10 {
+    margin-top: 10px;
+}
+
+.marginTop-20 {
+    margin-top: 20px;
+}
+
+.backgroundLogin {
+    background-color: #00BCD4;
+    width: 100%;
+    min-height: 100vh;
+    max-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+}
+
+.paddingRight-5 {
+    padding-right: 5px;
+}
+
+.paddingLeft-5 {
+    padding-left: 5px;
+}
+
+.paddingBottom-10 {
+    padding-bottom: 10px;
+}
+
+button {
+    border-radius: 0 !important;
+}
+
+.position-relative-height-64 {
+    position: relative;
+    height: 64px;
+}
+
+.bottom-0 {
+    bottom: 0;
+}
+
+.position-absolute {
+    position: absolute;
+}
+
+.marginTop-70 {
+    margin-top: 70px;
+}
+
+.alignRight {
+    text-align: right !important;
+}
+
+.alignLeft {
+    text-align: left !important;
+}
+
+.table-font-size-10 th, .table-font-size-10 td{
+    font-size: 10px !important;
+}
+
+.marginTop-0 {
+    margin-top: 0;
+}
+
+.marginBottom-0 {
+    margin-bottom: 0;
+}
