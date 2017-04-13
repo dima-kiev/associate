@@ -2,10 +2,13 @@ package com.itsupportme.associate.entity.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.CascadeType;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.HashSet;
@@ -59,6 +62,7 @@ public class User extends AbstractEntity<Long> {
     private String refreshTokenUID;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    @Cascade(CascadeType.DELETE)
     private Set<UserRole> userRole = new HashSet<>(0);
 
     public String getUsername() {

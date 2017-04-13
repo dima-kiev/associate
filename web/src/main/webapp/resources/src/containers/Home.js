@@ -18,7 +18,6 @@ export default class Home extends React.Component {
 
     componentWillMount() {
         this.props.actions.getMenuList(this.props.baseUrl, this.props.token);
-        //this.props.actions.getFlagImages(this.props.token, this.props.baseUrl);
     }
 
     //noinspection JSMethodCanBeStatic

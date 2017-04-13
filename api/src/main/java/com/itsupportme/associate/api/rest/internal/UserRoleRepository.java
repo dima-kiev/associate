@@ -19,6 +19,7 @@ public interface UserRoleRepository extends PagingAndSortingRepository<UserRole,
     <S extends UserRole> S save(S entity);
 
     @Override
+    @RoleSecured(Role.ROLE_USER_WRITE)
     <S extends UserRole> Iterable<S> save(Iterable<S> entities);
 
 }

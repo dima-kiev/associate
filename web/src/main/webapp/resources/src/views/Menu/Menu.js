@@ -74,7 +74,7 @@ export class Menu extends React.Component {
 
 const mapStateToProps = (state) => ({
     baseUrl  : state.baseUrl.baseUrl,
-    token    :  state.auth.token,
+    token    : state.auth.token,
     user     : state.auth.userName
 });
 
