@@ -5,6 +5,7 @@ import {protectedComponent} from '../components/protected';
 import App from '../containers/App';
 import Home from '../containers/Home';
 import HomeView from '../views/HomeView';
+import UserManagement from '../views/User/UserAsync';
 
 
 export default(
@@ -12,7 +13,7 @@ export default(
         <Route path="/" component={protectedComponent(Home)}>
             <IndexRoute component={HomeView}/>
             {
-                //<Route path="/user" component={UserManagement}/>
+                <Route path="/user" component={UserManagement}/>
             }
         </Route>
         <Route path="/login" component={LoginView}/>

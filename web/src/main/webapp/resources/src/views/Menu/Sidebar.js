@@ -44,7 +44,7 @@ export class Sidebar extends React.Component {
     }
 
     componentWillMount() {
-        var arr = this.parserMenu(this.props.menu);
+        let arr = this.parserMenu(this.props.menu);
         this.setState({
             menuItem: arr
         });
@@ -52,14 +52,14 @@ export class Sidebar extends React.Component {
     }
 
     parserMenu(mas) {
-        var r = this.props.role;
-        var arr = [];
-        var k = 0;
-        for (var i = 0; i < mas.length; i++) {
-            var roleList = mas[i].roles;
+        let r = this.props.role;
+        let arr = [];
+        let k = 0;
+        for (let i = 0; i < mas.length; i++) {
+            let roleList = mas[i].roles;
             if (!!mas[i].roles) {
-                var includes = true;
-                for (var t = 0; t < roleList.length; t++) {
+                let includes = true;
+                for (let t = 0; t < roleList.length; t++) {
                     if (!r.includes(roleList[t])) {
                         includes = false;
                         break;
@@ -89,10 +89,10 @@ export class Sidebar extends React.Component {
         e.preventDefault();
         const phone = ReactDOM.findDOMNode(this.refs.phone).value;
 
-        var data = {};
+        let data = {};
         data["phone1"] = phone;
 
-        var filter = {
+        let filter = {
             "phone": phone
         };
         this.props.actions.saveFilter(filter);
@@ -119,7 +119,7 @@ export class Sidebar extends React.Component {
         return (
             <Drawer open={this.props.open}>
                 <AppBar
-                    title="SConfirmation"
+                    title="Associate"
                     onLeftIconButtonTouchTap={this.openSidebar.bind(this)}
                 />
                 <List style={{fontSize:15}}>
